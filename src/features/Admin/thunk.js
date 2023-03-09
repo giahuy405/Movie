@@ -24,3 +24,27 @@ export const fetchListUser = async (dispatch)=>{
         console.log(err);
     }
 }
+export const searchUer = (tuKhoa) => async (dispatch) =>{
+    try{
+        const res =  await adminService.searchUser(tuKhoa);
+        dispatch({
+            type: "GET_LIST_USER",
+            payload: res.data.content
+        })
+    
+    }catch(err){
+        console.log(err);
+    }
+}
+export const searchFilms = (tuKhoa) => async (dispatch) =>{
+    try{
+        const res =  await adminService.searchFilms(tuKhoa);
+        dispatch({
+            type: "GET_FILMS",
+            payload: res.data.content
+        })
+    
+    }catch(err){
+        console.log(err);
+    }
+}

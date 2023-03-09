@@ -10,11 +10,16 @@ import {
 } from "@ant-design/icons";
 import { Menu } from "antd";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+
 
 const SiderAdmin = () => {
-  const navigate = useNavigate();
+
+ 
   const [collapsed, setCollapsed] = useState(false);
+  // eslint-disable-next-line no-unused-vars
+
+
 
   const toggleCollapsed = () => {
     setCollapsed(!collapsed);
@@ -34,16 +39,9 @@ const SiderAdmin = () => {
 
     {
       key: "1",
-      label: (
-        <span
-          onClick={() => {
-            navigate("/admin");
-          }}
-        >
-          User
-        </span>
-      ),
+      label:<NavLink to="/admin" >User</NavLink>,
       icon: <UserOutlined />,
+      
     },
     {
       key: "sub1",
@@ -51,26 +49,26 @@ const SiderAdmin = () => {
       icon: <ProfileOutlined />,
       children: [
         {
-          key: "2",
-          label: <span>List films</span>,
+          key: 2,
+          label: <NavLink to="/admin/films" >List films</NavLink>,
           icon: <UnorderedListOutlined />,
         },
         {
-          key: "3",
-          label: <span>New films</span>,
+          key: 3,
+          label: <NavLink to="/admin/films/addnew" >New films</NavLink>,
           icon: <FileAddOutlined />,
         },
       ],
     },
     {
-      key: "4",
+      key: 4,
       label: <span>Showtime</span>,
       icon: <DesktopOutlined />,
     },
  
   ];
   return (
-    <div style={{ height: "100%" }}>
+    <div style={{ height:"100%"}}>
       <div
         onClick={toggleCollapsed}
         style={{
@@ -87,8 +85,9 @@ const SiderAdmin = () => {
         )}
       </div>
       <Menu
+     
         style={{position:"relative"}}
-        defaultSelectedKeys={["1"]}
+        defaultSelectedKeys={"1"}
         defaultOpenKeys={["sub1"]}
         mode="inline"
         theme="dark"

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import AdminLayout from "../../HOCs/AdminLayout";
-import { fetchFilms, fetchListUser } from "./thunk";
+import { fetchFilms, fetchListUser, searchUer } from "./thunk";
 import { Button, Input, Table  } from "antd";
 
 import { UserAddOutlined} from "@ant-design/icons";
@@ -10,35 +10,43 @@ const User = () => {
   const dispatch = useDispatch();
   const dataSource = useSelector((state) => state.adminReducer.user);
   useEffect(() => {
-    dispatch(fetchFilms);
     dispatch(fetchListUser)
+    dispatch(fetchFilms)
   }, [dispatch]);
-
+  const  onSearch = (value)=>{
+    value === ""? dispatch(fetchListUser):dispatch(searchUer(value))
+  }
   const columns = [
     {
       title: "Tài Khoản",
       dataIndex: "taiKhoan",
+      // width: 170
     },
     {
       title: "Họ Tên",
       dataIndex: "hoTen",
-      sorter: (a, b) => a.age - b.age,
+      // width:200,
     },
     {
       title: "Email",
       dataIndex: "email",
+      // width:230
     },
     {
       title: "Số điện Thoại",
       dataIndex: "soDT",
+      // width:150
     },
     {
       title: "Mật Khẩu",
       dataIndex: "matKhau",
+      // width: 150
+
     },
     {
       title: "Loại Người dùng",
       dataIndex: "maLoaiNguoiDung",
+      // width:200,
       filters:[
         {
           text:"KhachHang",
@@ -54,23 +62,22 @@ const User = () => {
       onFilter: (value, record) => record.maLoaiNguoiDung.startsWith(value),
     },
     {
-      title: "thao tác",
+      title: "Hành Động",
       dataIndex: "thaoTac",
     },
   ];
-  console.log(dataSource);
   return (
-    <AdminLayout>
+    <AdminLayout >
       <div className="m-5 p-2 bg-slate-300">
-        <h2 className="m-0">Quản lý tài khoản</h2>
+        <h2 className="m-0 text-2xl font-bold">Quản lý tài khoản</h2>
         <div className="flex justify-center items-center">
-        <Button type="primary" className="my-3">
+        <Button type="primary" className="my-3 bg-sky-500">
           <UserAddOutlined />
           Thêm người dùng
         </Button>
-        <Input.Search placeholder="Nhập từ khóa tìm kím" enterButton 
+        <Input.Search placeholder="Nhập từ khóa tìm kím" 
+        onSearch={onSearch}
         style={{
-          width: 1480,
           marginLeft: 40
         }}
         />
@@ -83,11 +90,10 @@ const User = () => {
             hoTen: items.hoTen,
             email: items.email,
             soDT:items.soDT,
-            matKhau:<Input.Password value={items.matKhau}/>,
+            matKhau:<Input.Password value={items.matKhau} style ={{width: 150}}/>,
             maLoaiNguoiDung:items.maLoaiNguoiDung  
           }
         })} />
-        <Input/>
         
       </div>
     </AdminLayout>

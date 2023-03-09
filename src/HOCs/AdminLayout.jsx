@@ -5,10 +5,11 @@ import SiderAdmin from "../components/SiderAdmin";
 
 
 const AdminLayout = (props) => {
-  return (
 
+  return (
+   
   <div className="flex">
-    <div style={{maxheight:"100%"}} >
+    <div style={{minHeight:720 , backgroundColor:"#02172b"}} >
     <SiderAdmin />
     </div>
     <div style={{width:"100%"}}>

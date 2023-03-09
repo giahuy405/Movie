@@ -20,8 +20,8 @@ function App() {
     <BrowserRouter>
 
       <Routes>
-        {routes.map(({ path, component: Component, isPrivate , isAuth, redirectPath }) =>
-          <Route key={path} path={path} element={<RouteComponent isPrivate={isPrivate} isAuth={isAuth} Component={Component} redirectPath={redirectPath} />} />
+        {routes.map(({ path, component: Component, isPrivate , isAuth, redirectPath , isAdmin, }) =>
+          <Route key={path} path={path} element={<RouteComponent isPrivate={isPrivate} isAuth={isAuth} isAdmin ={isAdmin} Component={Component} redirectPath={redirectPath}  />}/>
         )}
         <Route path='/*' element={<NotFoundPage />} />
       </Routes>
