@@ -1,7 +1,7 @@
 import { produce } from "immer";
 
 const initialState = {
-  films: {},
+  films: [],
   user:[],
 };
 export const adminReducer = (state = initialState, action) => {

@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import AdminLayout from "../../HOCs/AdminLayout";
 import { fetchFilms, fetchListUser, searchUer } from "./thunk";
-import { Button, Input, Table  } from "antd";
+import { Button, Input, Table} from "antd";
 
 import { UserAddOutlined} from "@ant-design/icons";
 
@@ -11,7 +11,6 @@ const User = () => {
   const dataSource = useSelector((state) => state.adminReducer.user);
   useEffect(() => {
     dispatch(fetchListUser)
-    dispatch(fetchFilms)
   }, [dispatch]);
   const  onSearch = (value)=>{
     value === ""? dispatch(fetchListUser):dispatch(searchUer(value))
@@ -67,7 +66,6 @@ const User = () => {
     },
   ];
   return (
-    <AdminLayout >
       <div className="m-5 p-2 bg-slate-300">
         <h2 className="m-0 text-2xl font-bold">Quản lý tài khoản</h2>
         <div className="flex justify-center items-center">
@@ -94,9 +92,8 @@ const User = () => {
             maLoaiNguoiDung:items.maLoaiNguoiDung  
           }
         })} />
-        
+          
       </div>
-    </AdminLayout>
   );
 };
 

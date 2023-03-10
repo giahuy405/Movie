@@ -13,8 +13,8 @@ export const routes = [
     { path: '/signin', component: Signin, isAuth: true, redirectPath: '/' },
     { path: '/signup', component: Signup },
     { path: '/profile', component: Profile,},
-    { path: '/admin', component: User,  isAdmin:true, redirectPath: '/signin'},
-    { path: '/admin/films', component: Listfilms,  isAdmin:true, redirectPath: '/signin'},
-    { path: '/admin/films/addnew', component: Listfilms,  isAdmin:true, redirectPath: '/signin'},
+    // { path: '/admin', component: User,  isAdmin:true, redirectPath: '/signin'},
+    // { path: '/admin/films', component: Listfilms,  isAdmin:true, redirectPath: '/signin'},
+    // { path: '/admin/films/addnew', component: Listfilms,  isAdmin:true, redirectPath: '/signin'},
     
 ]

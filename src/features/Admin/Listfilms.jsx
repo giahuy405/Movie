@@ -11,10 +11,11 @@ const ListFilms = () => {
   useEffect (()=>{
     dispatch(fetchFilms)
   },[dispatch])
+  const listFilms = useSelector(state=> state.adminReducer.films)
   const  onSearchFilms = (value)=>{
     value === ""? dispatch(fetchFilms):dispatch(searchFilms(value))
   }
-  const listFilms = useSelector(state=> state.adminReducer.films)
+ 
   const [searchText, setSearchText] = useState('');
   const [searchedColumn, setSearchedColumn] = useState('');
   const searchInput = useRef(null);
@@ -150,7 +151,6 @@ const ListFilms = () => {
   },
 ]
   return (
-    <AdminLayout>
       <div className='m-5 p-2 bg-slate-300'>
       <h2 className='text-2xl font-bold'>Quản lý phim</h2>
       <div className='flex items-center'> 
@@ -158,7 +158,7 @@ const ListFilms = () => {
       <Input.Search className='ml-10'  placeholder="Nhập tên phim"  onSearch={onSearchFilms} />
       </div>
      
-      <Table columns={columns} dataSource={listFilms.map((items)=>{
+      <Table columns={columns} dataSource={listFilms?.map((items)=>{
         return{
             key:items.maPhim,
             maPhim:items.maPhim,
@@ -169,8 +169,7 @@ const ListFilms = () => {
         }
       })}/>
       </div>
-      
-    </AdminLayout>
+  
   )
 }
 

@@ -3,8 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { routes } from './app/routes'
 import NotFoundPage from "./components/NotFoundPage";
+import Dashboard from "./features/Admin/Dashboard";
+import ListFilms from "./features/Admin/Listfilms";
 import { fetchProfile } from "./features/Auth/thunk";
 import RouteComponent from "./HOCs/AppRoute";
+import User from "./features/Admin/User";
+import NewFilms from "./features/Admin/NewFilms";
 
  
 function App() {
@@ -24,6 +28,11 @@ function App() {
           <Route key={path} path={path} element={<RouteComponent isPrivate={isPrivate} isAuth={isAuth} isAdmin ={isAdmin} Component={Component} redirectPath={redirectPath}  />}/>
         )}
         <Route path='/*' element={<NotFoundPage />} />
+        <Route path="/admin" element={<Dashboard/>}>
+             <Route index element={<User/>} />
+            <Route  path="films" element={<ListFilms/>} />
+            <Route  path="films/addnew" element={<NewFilms/>} /> 
+        </Route>
       </Routes>
       
     </BrowserRouter>
