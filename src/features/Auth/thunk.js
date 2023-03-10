@@ -18,7 +18,7 @@ export const postLoginInfo = data => async (dispatch) => {
             type: HIDDEN_LOADDING
         })
     } catch (err) {
-    
+
         dispatch({
             type: HIDDEN_LOADDING
         })
@@ -67,7 +67,24 @@ export const postSignUp = data => async (dispatch) => {
 export const updateUser = data => async (dispatch) => {
     try {
         const res = await AuthService.updateUser(data);
+        return true
     } catch (err) {
+        const Toast = await Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 1500,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+        })
+        await Toast.fire({
+            icon: 'error',
+            title: `${err.response.data.content}`
+        })
         console.log(err);
+        return false
     }
 }
