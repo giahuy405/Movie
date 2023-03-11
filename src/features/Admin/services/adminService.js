@@ -13,5 +13,6 @@ export const adminService = {
          tenPhim:tuKhoa
       }
    }),
+   addNewFilms: (data)=>https.post("/QuanLyPhim/ThemPhimUploadHinh",data)
 
 };

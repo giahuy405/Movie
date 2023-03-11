@@ -1,10 +1,8 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import AdminLayout from "../../HOCs/AdminLayout";
-import { fetchFilms, fetchListUser, searchUer } from "./thunk";
-import { Button, Input, Table} from "antd";
-
-import { UserAddOutlined} from "@ant-design/icons";
+import {  fetchListUser, searchUer } from "./thunk";
+import { Button, Input, Table,Tooltip} from "antd";
+import { UserAddOutlined,EditOutlined,DeleteOutlined} from "@ant-design/icons";
 
 const User = () => {
   const dispatch = useDispatch();
@@ -89,7 +87,14 @@ const User = () => {
             email: items.email,
             soDT:items.soDT,
             matKhau:<Input.Password value={items.matKhau} style ={{width: 150}}/>,
-            maLoaiNguoiDung:items.maLoaiNguoiDung  
+            maLoaiNguoiDung:items.maLoaiNguoiDung ,
+            thaoTac:<> <Tooltip title="Edit" color="green" key="green">
+            <button className='ml-3 text-green-600 text-lg '><EditOutlined /></button>
+            </Tooltip>
+            <Tooltip title="Delete" color="red" key="red" >
+            <button className='ml-5 text-red-600 text-lg '><DeleteOutlined /></button>
+            </Tooltip>
+            </>
           }
         })} />
           

@@ -48,3 +48,12 @@ export const searchFilms = (tuKhoa) => async (dispatch) =>{
         console.log(err);
     }
 }
+export const addNewFilms = async (data)=>{
+    try{
+        const res = await adminService.addNewFilms(data);
+        alert('thêm thành công');
+        console.log(res.data.content);
+    }catch(err){
+        console.log(err);
+    }
+}

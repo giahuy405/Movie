@@ -1,16 +1,20 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import AdminLayout from '../../HOCs/AdminLayout'
 import { fetchFilms, searchFilms } from './thunk'
-import { Table, Space, Button, Input } from 'antd'
+import { Table, Space, Button, Input, Tooltip } from 'antd'
 import Highlighter from 'react-highlight-words';
-import { SearchOutlined } from '@ant-design/icons';
+import { SearchOutlined,EditOutlined, DeleteOutlined } from '@ant-design/icons';
+import { NavLink } from 'react-router-dom';
 
 const ListFilms = () => {
   const dispatch = useDispatch ();
   useEffect (()=>{
     dispatch(fetchFilms)
   },[dispatch])
+  
+  const tetsF =()=>{
+    // navigate("/admin/films/addnew")
+  }
   const listFilms = useSelector(state=> state.adminReducer.films)
   const  onSearchFilms = (value)=>{
     value === ""? dispatch(fetchFilms):dispatch(searchFilms(value))
@@ -132,7 +136,7 @@ const ListFilms = () => {
   {
     title: "Hình Ảnh",
     dataIndex: "hinhAnh",
-    width: "7%"
+    width: "8%"
   },
   {
     title: "Tên Phim",
@@ -154,7 +158,8 @@ const ListFilms = () => {
       <div className='m-5 p-2 bg-slate-300'>
       <h2 className='text-2xl font-bold'>Quản lý phim</h2>
       <div className='flex items-center'> 
-      <button className='bg-sky-500 hover:bg-sky-700 text-white border-double border-4 border-sky-500 my-3 px-4 ' style={{borderRadius:5, width:"12%"}}>Thêm Phim</button>
+      <NavLink to="/admin/films/addnew" className='bg-sky-500 hover:bg-sky-700 text-white border-double border-4 border-sky-500 my-3 px-4'
+      style={{borderRadius:5, width:"11%"}} >Thêm Phim</NavLink>
       <Input.Search className='ml-10'  placeholder="Nhập tên phim"  onSearch={onSearchFilms} />
       </div>
      
@@ -165,7 +170,15 @@ const ListFilms = () => {
             tenPhim:items.tenPhim,
             hinhAnh: <img src={items.hinhAnh} alt="mo ta hinh anh"/>,
             taiKhoan: items.taiKhoan,
-            moTa:items.moTa,
+            moTa: items.moTa,
+            thaoTac:<>
+            <Tooltip title="Edit" color="green" key="green">
+            <button className='ml-3 text-green-600 text-lg '><EditOutlined /></button>
+            </Tooltip>
+            <Tooltip title="Delete" color="red" key="red" >
+            <button className='ml-5 text-red-600 text-lg '><DeleteOutlined /></button>
+            </Tooltip>
+            </>         
         }
       })}/>
       </div>
