@@ -9,6 +9,7 @@ import { fetchProfile } from "./features/Auth/thunk";
 import RouteComponent from "./HOCs/AppRoute";
 import User from "./features/Admin/User";
 import NewFilms from "./features/Admin/NewFilms";
+import Editfilms from "./features/Admin/Editfilms";
 
  
 function App() {
@@ -29,9 +30,10 @@ function App() {
         )}
         <Route path='/*' element={<NotFoundPage />} />
         <Route path="/admin" element={<Dashboard/>}>
-             <Route index element={<User/>} />
+            <Route index element={<User/>} />
             <Route  path="films" element={<ListFilms/>} />
             <Route  path="films/addnew" element={<NewFilms/>} /> 
+            <Route path="films/edit/:id" element={<Editfilms/>}/>
         </Route>
       </Routes>
       

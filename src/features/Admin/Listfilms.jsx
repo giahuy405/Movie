@@ -1,20 +1,18 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchFilms, searchFilms } from './thunk'
+import { deleteFimls, fetchFilms, searchFilms } from './thunk'
 import { Table, Space, Button, Input, Tooltip } from 'antd'
 import Highlighter from 'react-highlight-words';
 import { SearchOutlined,EditOutlined, DeleteOutlined } from '@ant-design/icons';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 const ListFilms = () => {
-  const dispatch = useDispatch ();
+const dispatch = useDispatch ();
+const Navigate = useNavigate();
   useEffect (()=>{
     dispatch(fetchFilms)
   },[dispatch])
-  
-  const tetsF =()=>{
-    // navigate("/admin/films/addnew")
-  }
+  const goToEditFilms = (id) =>{Navigate("/admin/films/edit/" + id)};
   const listFilms = useSelector(state=> state.adminReducer.films)
   const  onSearchFilms = (value)=>{
     value === ""? dispatch(fetchFilms):dispatch(searchFilms(value))
@@ -163,7 +161,7 @@ const ListFilms = () => {
       <Input.Search className='ml-10'  placeholder="Nhập tên phim"  onSearch={onSearchFilms} />
       </div>
      
-      <Table columns={columns} dataSource={listFilms?.map((items)=>{
+      <Table columns={columns} rowKey="maPhim" dataSource={listFilms?.map((items)=>{
         return{
             key:items.maPhim,
             maPhim:items.maPhim,
@@ -173,10 +171,10 @@ const ListFilms = () => {
             moTa: items.moTa,
             thaoTac:<>
             <Tooltip title="Edit" color="green" key="green">
-            <button className='ml-3 text-green-600 text-lg '><EditOutlined /></button>
+            <button className='ml-3 text-green-600 text-lg ' onClick={()=>{goToEditFilms(items.maPhim)}}><EditOutlined /></button>
             </Tooltip>
             <Tooltip title="Delete" color="red" key="red" >
-            <button className='ml-5 text-red-600 text-lg '><DeleteOutlined /></button>
+            <button className='ml-5 text-red-600 text-lg ' onClick={()=>{dispatch(deleteFimls(items.maPhim))}}><DeleteOutlined /></button>
             </Tooltip>
             </>         
         }

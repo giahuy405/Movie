@@ -13,6 +13,8 @@ export const adminService = {
          tenPhim:tuKhoa
       }
    }),
-   addNewFilms: (data)=>https.post("/QuanLyPhim/ThemPhimUploadHinh",data)
-
+   addNewFilms: (data)=>https.post("/QuanLyPhim/ThemPhimUploadHinh",data),
+   infoFilms: (id)=>https.get(`/QuanLyPhim/LayThongTinPhim?MaPhim=${id}`),
+   updateFilms: (formData)=>https.post("/QuanLyPhim/CapNhatPhimUpload",formData),
+   deleteFilms: (maPhim)=>https.delete(`/QuanLyPhim/XoaPhim?MaPhim=${maPhim}`)
 };
