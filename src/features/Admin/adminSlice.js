@@ -4,6 +4,7 @@ const initialState = {
   films: [],
   user: [],
   infoFilms: [],
+  cumRap:[]
 };
 export const adminReducer = (state = initialState, action) => {
   return produce(state, (draft) => {
@@ -16,6 +17,9 @@ export const adminReducer = (state = initialState, action) => {
         break;
       case "INFO_FILMS":
         draft.infoFilms = action.payload;
+        break;
+        case "LIST_RAP":
+        draft.cumRap = action.payload;
         break;
       default:
         break;

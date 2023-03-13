@@ -13,7 +13,7 @@ import { useFormik } from 'formik';
 import moment from 'moment';
 import { useDispatch, useSelector } from 'react-redux';
 import {  infoFilms, uploadFilms } from './thunk';
-import { useParams } from 'react-router-dom';
+import {  useParams } from 'react-router-dom';
 
 
 
@@ -25,6 +25,7 @@ const [componentSize, setComponentSize] = useState('Default');
     setComponentSize(size);
   };
   const {id}= useParams()
+  
   useEffect(()=>{
     dispatch(infoFilms(id))
   },[dispatch, id])
@@ -46,8 +47,6 @@ const [componentSize, setComponentSize] = useState('Default');
 
     },
     onSubmit:(value)=>{
-      console.log("value", value);
-        // console.log("value",value);
       let formData = new FormData();
       for(let key in value){
         if(key !== "hinhAnh"){
@@ -79,6 +78,7 @@ const [componentSize, setComponentSize] = useState('Default');
     render.onload=(e)=>{
     setImgSrc(e.target.result)
     }
+ 
     
 }
   return (

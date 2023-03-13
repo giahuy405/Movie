@@ -16,5 +16,8 @@ export const adminService = {
    addNewFilms: (data)=>https.post("/QuanLyPhim/ThemPhimUploadHinh",data),
    infoFilms: (id)=>https.get(`/QuanLyPhim/LayThongTinPhim?MaPhim=${id}`),
    updateFilms: (formData)=>https.post("/QuanLyPhim/CapNhatPhimUpload",formData),
-   deleteFilms: (maPhim)=>https.delete(`/QuanLyPhim/XoaPhim?MaPhim=${maPhim}`)
+   deleteFilms: (maPhim)=>https.delete(`/QuanLyPhim/XoaPhim?MaPhim=${maPhim}`),
+   getInfoTheaterSystem: ()=>https.get("/QuanLyRap/LayThongTinHeThongRap"),
+   getInfoCluster:(maRap)=>https.get(`/QuanLyRap/LayThongTinCumRapTheoHeThong?maHeThongRap=${maRap}`),
+   upShowTime: (data) =>https.post("/QuanLyDatVe/TaoLichChieu",data)
 };

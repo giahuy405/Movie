@@ -10,6 +10,7 @@ import RouteComponent from "./HOCs/AppRoute";
 import User from "./features/Admin/User";
 import NewFilms from "./features/Admin/NewFilms";
 import Editfilms from "./features/Admin/Editfilms";
+import Showtime from "./features/Admin/Showtime";
 
  
 function App() {
@@ -34,6 +35,7 @@ function App() {
             <Route  path="films" element={<ListFilms/>} />
             <Route  path="films/addnew" element={<NewFilms/>} /> 
             <Route path="films/edit/:id" element={<Editfilms/>}/>
+            <Route path="films/showtime/:id" element={<Showtime/>} />
         </Route>
       </Routes>
       

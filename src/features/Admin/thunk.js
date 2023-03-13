@@ -1,5 +1,6 @@
 
 import { adminService } from "./services/adminService";
+
 export const fetchFilms = async (dispatch)=>{
     try{
         const res = await adminService.getFilms()
@@ -80,6 +81,18 @@ export const deleteFimls =  (maPhim) =>async (dispatch) =>{
     const res = await adminService.deleteFilms(maPhim);
     alert("Xóa Thành Công")
     dispatch(fetchFilms)
+    }catch(err){
+        console.log(err);
+    }
+}
+export const fetchCumRap =  async (dispatch) =>{
+    try{
+    const res = await adminService.getInfoTheaterSystem();
+    dispatch({
+        type:"LIST_RAP",
+        payload: res.data.content
+    })
+
     }catch(err){
         console.log(err);
     }

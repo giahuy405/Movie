@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { deleteFimls, fetchFilms, searchFilms } from './thunk'
 import { Table, Space, Button, Input, Tooltip } from 'antd'
 import Highlighter from 'react-highlight-words';
-import { SearchOutlined,EditOutlined, DeleteOutlined } from '@ant-design/icons';
+import { SearchOutlined,EditOutlined, DeleteOutlined,DesktopOutlined } from '@ant-design/icons';
 import { NavLink, useNavigate } from 'react-router-dom';
 
 const ListFilms = () => {
@@ -12,7 +12,8 @@ const Navigate = useNavigate();
   useEffect (()=>{
     dispatch(fetchFilms)
   },[dispatch])
-  const goToEditFilms = (id) =>{Navigate("/admin/films/edit/" + id)};
+  const goToEditFilms = (id) =>{Navigate("/admin/films/edit/" + id)}; // đi đến trang edit films
+  const goToShowTimme = (id) =>{Navigate("/admin/films/showtime/" + id)} // đi đến trang show time 
   const listFilms = useSelector(state=> state.adminReducer.films)
   const  onSearchFilms = (value)=>{
     value === ""? dispatch(fetchFilms):dispatch(searchFilms(value))
@@ -171,10 +172,13 @@ const Navigate = useNavigate();
             moTa: items.moTa,
             thaoTac:<>
             <Tooltip title="Edit" color="green" key="green">
-            <button className='ml-3 text-green-600 text-lg ' onClick={()=>{goToEditFilms(items.maPhim)}}><EditOutlined /></button>
+            <button className='  text-green-600 text-lg ' onClick={()=>{goToEditFilms(items.maPhim)}}><EditOutlined /></button>
             </Tooltip>
             <Tooltip title="Delete" color="red" key="red" >
-            <button className='ml-5 text-red-600 text-lg ' onClick={()=>{dispatch(deleteFimls(items.maPhim))}}><DeleteOutlined /></button>
+            <button className='mx-3  text-red-600 text-lg ' onClick={()=>{dispatch(deleteFimls(items.maPhim))}}><DeleteOutlined /></button>
+            </Tooltip>
+            <Tooltip title="Showtime" color="blue" key="blue" >
+            <button className=' text-sky-600 text-lg ' onClick={()=>{goToShowTimme(items.maPhim)}}><DesktopOutlined /></button>
             </Tooltip>
             </>         
         }
