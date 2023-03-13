@@ -105,7 +105,7 @@ const Signin = () => {
                                         name='taiKhoan'
                                         onChange={handleChange}
                                         onBlur={handleBlur}
-                                        placeholder='giahuy4'
+                                        placeholder={t('Nhập tài khoản')}
                                     />
                                     {errorInfo.taiKhoan && <span className='text-red-600 text-xs'  >{t(`${errorInfo.taiKhoan}`)}</span>}
                                 </div>
@@ -120,7 +120,7 @@ const Signin = () => {
                                         type='password'
                                         onChange={handleChange}
                                         onBlur={handleBlur}
-                                        placeholder='123456'
+                                        placeholder={t('Nhập mật khẩu')}
                                     />
                                     {errorInfo.matKhau && <span className='text-red-600 text-xs' >{t(`${errorInfo.matKhau}`)}</span>}
                                 </div>

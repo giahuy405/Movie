@@ -37,9 +37,8 @@ const Profile = () => {
     const onSubmit = async (values, actions) => {
         await new Promise((resolve, reject) => setTimeout(resolve, 1000));
         console.log(values)
-        const res = await dispatch(updateUser(values));
+        await dispatch(updateUser(values));
         await dispatch(fetchProfile)
-        if (!res) return;
         const Toast = await Swal.mixin({
             toast: true,
             position: 'top-end',
