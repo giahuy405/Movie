@@ -13,7 +13,7 @@ This is a web application for a movie theater that allows users to buy tickets, 
 * Language selection (Vietnamese, Chinese, and English)
 * Dark mode / Light mode
 
-**Fast testing** : https://movie-2-llpf-11y51sm2i-giahuy405.vercel.app/ <br/>Account User   :   giahuy4<br/>Password User  :   123456
+**Fast testing** : https://movie-blond.vercel.app/ <br/>Account User   :   giahuy4<br/>Password User  :   123456
 
 
 ### ADMIN PAGE : 
@@ -24,7 +24,7 @@ This is a web application for a movie theater that allows users to buy tickets, 
 * Booking management (list of all bookings and details)
 * Dark mode / Light mode
 
-**Fast testing** : https://movie-2-llpf-11y51sm2i-giahuy405.vercel.app/admin <br/> Account Admin  :   giacat2910asd <br/> Password Admin :   123123
+**Fast testing** : https://movie-blond.vercel.app/admin <br/> Account Admin  :   giacat2910asd <br/> Password Admin :   123123
 
 
 ### Technologies
