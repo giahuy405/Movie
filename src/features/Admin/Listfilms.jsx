@@ -3,23 +3,23 @@ import { useDispatch, useSelector } from 'react-redux'
 import { deleteFimls, fetchFilms, searchFilms } from './thunk'
 import { Table, Space, Button, Input, Tooltip } from 'antd'
 import Highlighter from 'react-highlight-words';
-import { SearchOutlined,EditOutlined, DeleteOutlined,DesktopOutlined } from '@ant-design/icons';
+import { SearchOutlined, EditOutlined, DeleteOutlined, DesktopOutlined } from '@ant-design/icons';
 import { NavLink, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
-
+import { PlusCircleOutlined, CloseCircleOutlined, CheckCircleOutlined } from '@ant-design/icons'
 const ListFilms = () => {
-const dispatch = useDispatch ();
-const Navigate = useNavigate();
-  useEffect (()=>{
+  const dispatch = useDispatch();
+  const Navigate = useNavigate();
+  useEffect(() => {
     dispatch(fetchFilms)
-  },[dispatch])
-  const goToEditFilms = (id) =>{Navigate("/admin/films/edit/" + id)}; // đi đến trang edit films
-  const goToShowTimme = (id) =>{Navigate("/admin/films/showtime/" + id)} // đi đến trang show time 
-  const listFilms = useSelector(state=> state.adminReducer.films)
-  const  onSearchFilms = (value)=>{
-    value === ""? dispatch(fetchFilms):dispatch(searchFilms(value))
+  }, [dispatch])
+  const goToEditFilms = (id) => { Navigate("/admin/films/edit/" + id) }; // đi đến trang edit films
+  const goToShowTimme = (id) => { Navigate("/admin/films/showtime/" + id) } // đi đến trang show time 
+  const listFilms = useSelector(state => state.adminReducer.films)
+  const onSearchFilms = (value) => {
+    value === "" ? dispatch(fetchFilms) : dispatch(searchFilms(value))
   }
- 
+
   const [searchText, setSearchText] = useState('');
   const [searchedColumn, setSearchedColumn] = useState('');
   const searchInput = useRef(null);
@@ -42,7 +42,7 @@ const Navigate = useNavigate();
       >
         <Input
           ref={searchInput}
-          placeholder={`Search ${dataIndex}`}
+          placeholder={`Tìm kiếm mã phim`}
           value={selectedKeys[0]}
           onChange={(e) => setSelectedKeys(e.target.value ? [e.target.value] : [])}
           onPressEnter={() => handleSearch(selectedKeys, confirm, dataIndex)}
@@ -53,7 +53,7 @@ const Navigate = useNavigate();
         />
         <Space>
           <Button
-          className='bg-sky-500'
+            className='bg-sky-500'
             type="primary"
             onClick={() => handleSearch(selectedKeys, confirm, dataIndex)}
             icon={<SearchOutlined />}
@@ -62,7 +62,7 @@ const Navigate = useNavigate();
               width: 90,
             }}
           >
-            Search
+            Tìm
           </Button>
           <Button
             onClick={() => clearFilters && handleReset(clearFilters)}
@@ -84,7 +84,7 @@ const Navigate = useNavigate();
               setSearchedColumn(dataIndex);
             }}
           >
-            Filter
+            Lọc
           </Button>
           <Button
             type="link"
@@ -93,7 +93,7 @@ const Navigate = useNavigate();
               close();
             }}
           >
-            close
+            Đóng
           </Button>
         </Space>
       </div>
@@ -131,80 +131,110 @@ const Navigate = useNavigate();
     title: "Mã Phim",
     dataIndex: "maPhim",
     ...getColumnSearchProps('maPhim'),
-    width: 120
+
   },
   {
     title: "Hình Ảnh",
     dataIndex: "hinhAnh",
-    width: "8%"
   },
   {
     title: "Tên Phim",
     dataIndex: "tenPhim",
-    width: 240
+
   },
   {
-    title: "Mô Tả",
-    dataIndex: "moTa",
-    width: 780
+    title: "Sắp chiếu",
+    dataIndex: "sapChieu",
   },
+  {
+    title: "Đang chiếu",
+    dataIndex: "dangChieu",
+
+  },
+  {
+    title: "Phim Hot",
+    dataIndex: "hot",
+
+  },
+
+  // {
+  //   title: "Mô Tả",
+  //   dataIndex: "moTa",
+  //   width: 780
+  // },
   {
     title: "Hành Động",
     dataIndex: "thaoTac",
-    width: 120
+
   },
-]
+  ]
   return (
-      <div className='m-5 p-2 bg-slate-300'>
+    <div className='p-3 bg-gray-300 dark:bg-[#727272]'>
       <h2 className='text-2xl font-bold'>Quản lý phim</h2>
-      <div className='flex items-center'> 
-      <NavLink to="/admin/films/addnew" className='bg-sky-500 hover:bg-sky-700 text-white border-double border-4 border-sky-500 my-3 px-4'
-      style={{borderRadius:5, width:"11%"}} >Thêm Phim</NavLink>
-      <Input.Search className='ml-10'  placeholder="Nhập tên phim"  onSearch={onSearchFilms} />
+      <div className='flex items-center my-4'>
+        <div className='mr-4'>
+          <NavLink to="/admin/films/addnew" className='bg-orange-500 hover:bg-orange-700 text-white border-orange-500 p-1.5 px-3 rounded flex items-center'
+          >Thêm Phim <PlusCircleOutlined className='ml-1' /></NavLink>
+        </div>
+        <div>
+          <Input.Search className='w-72' placeholder="Nhập tên phim" onSearch={onSearchFilms} />
+        </div>
       </div>
-     
-      <Table columns={columns} rowKey="maPhim" dataSource={listFilms?.map((items)=>{
-        return{
-            key:items.maPhim,
-            maPhim:items.maPhim,
-            tenPhim:items.tenPhim,
-            hinhAnh: <img src={items.hinhAnh} alt="mo ta hinh anh"/>,
-            taiKhoan: items.taiKhoan,
-            moTa: items.moTa,
-            thaoTac:<>
+      <Table
+      scroll={{y:500}}
+      columns={columns} rowKey="maPhim" dataSource={listFilms?.map((items) => {
+        return {
+          key: items.maPhim,
+          maPhim: items.maPhim,
+          tenPhim: items.tenPhim,
+          sapChieu: <div className='text-center'>
+            {items.sapChieu ? <CheckCircleOutlined className='text-green-500 text-xl leading-6' /> : <CloseCircleOutlined className='text-red-500 text-xl leading-6' />}
+          </div>,
+          dangChieu: <div className='text-center'>
+            {items.dangChieu ? <CheckCircleOutlined className='text-green-500 text-xl leading-6' /> : <CloseCircleOutlined className='text-red-500 text-xl leading-6' />}
+          </div>,
+          hot: <div className='text-center'>
+            {items.hot ? <CheckCircleOutlined className='text-green-500 text-xl leading-6' /> : <CloseCircleOutlined className='text-red-500 text-xl leading-6' />}
+          </div>,
+
+          hinhAnh: <img src={items.hinhAnh} width={40} alt="mo ta hinh anh" />,
+          taiKhoan: items.taiKhoan,
+          moTa: items.moTa,
+          thaoTac: <>
             <Tooltip title="Edit" color="green" key="green">
-            <button className='  text-green-600 text-lg ' onClick={()=>{goToEditFilms(items.maPhim)}}><EditOutlined /></button>
+              <button className='  text-green-600 text-lg ' onClick={() => { goToEditFilms(items.maPhim) }}><EditOutlined /></button>
             </Tooltip>
             <Tooltip title="Delete" color="red" key="red" >
-            <button className='mx-3  text-red-600 text-lg ' onClick={()=>{
-              Swal.fire({
-                title: 'Có chắc bạn muốn xóa phim !',
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'xóa'
-              }).then((result) => {
-                if (result.isConfirmed) {
-                  dispatch(deleteFimls(items.maPhim))
-                  Swal.fire({
-                    
-                    title: 'Xóa Thành Công',
-                    icon: 'success',
-                    timer: 1500,
-                  })
-                 
-                }
-              })}}><DeleteOutlined /></button>
+              <button className='mx-3  text-red-600 text-lg ' onClick={() => {
+                Swal.fire({
+                  title: 'Có chắc bạn muốn xóa phim !',
+                  icon: 'warning',
+                  showCancelButton: true,
+                  confirmButtonColor: '#3085d6',
+                  cancelButtonColor: '#d33',
+                  confirmButtonText: 'xóa'
+                }).then((result) => {
+                  if (result.isConfirmed) {
+                    dispatch(deleteFimls(items.maPhim))
+                    Swal.fire({
+
+                      title: 'Xóa Thành Công',
+                      icon: 'success',
+                      timer: 1500,
+                    })
+
+                  }
+                })
+              }}><DeleteOutlined /></button>
             </Tooltip>
             <Tooltip title="Showtime" color="blue" key="blue" >
-            <button className=' text-sky-600 text-lg ' onClick={()=>{goToShowTimme(items.maPhim)}}><DesktopOutlined /></button>
+              <button className=' text-sky-600 text-lg ' onClick={() => { goToShowTimme(items.maPhim) }}><DesktopOutlined /></button>
             </Tooltip>
-            </>         
+          </>
         }
-      })}/>
-      </div>
-  
+      })} />
+    </div>
+
   )
 }
 

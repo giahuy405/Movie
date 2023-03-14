@@ -1,6 +1,6 @@
 import React, { useState,useEffect } from 'react';
 
-const ButtonDarkMode = () => {
+const BtnDarkMode = () => {
     const [theme, setTheme] = useState(
         localStorage.getItem('theme') ? localStorage.getItem('theme') : "dark"
     );
@@ -56,16 +56,15 @@ const ButtonDarkMode = () => {
         }
     })
     return (
-        <div className="fixed bottom-2 left-2">
+        <div className="fixed bottom-14 left-2 flex flex-col">
             {
                 option?.map(item =>
                     <button
                         onClick={() => {
                             setTheme(item.text)
                         }}
-
                         key={item.text}
-                        className={`bg-black text-white rounded border border-white duration-300
+                        className={`bg-black text-white rounded border border-white duration-300 mt-3
                     w-9 h-9 text-2xl leading-10 mx-1 opacity-25 ${theme === item.text && 'bg-gray-500 text-black opacity-100'}`}
                     >
                         <ion-icon name={item.icon}></ion-icon>
@@ -76,4 +75,4 @@ const ButtonDarkMode = () => {
     );
 };
 
-export default ButtonDarkMode;
+export default BtnDarkMode;

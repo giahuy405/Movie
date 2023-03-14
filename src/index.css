@@ -30,12 +30,12 @@ input:disabled {
   cursor: no-drop;
 }
 
-:where(.css-1km3mtt).ant-pagination .ant-pagination-item-active:hover {
+:where(.css-dev-only-do-not-override-1km3mtt).ant-pagination .ant-pagination-item-active:hover {
   border-color: black;
   color: black !important;
 }
 
-:where(.css-1km3mtt).ant-pagination .ant-pagination-item-active:hover a {
+:where(.css-dev-only-do-not-override-1km3mtt).ant-pagination .ant-pagination-item-active:hover a {
   color: black;
 }
 
@@ -250,20 +250,20 @@ input:disabled {
   color: white;
 }
 
-:where(.css-1km3mtt).ant-select:not(.ant-select-disabled):not(.ant-select-customize-input):not(.ant-pagination-size-changer):hover .ant-select-selector {
+:where(.css-dev-only-do-not-override-1km3mtt).ant-select:not(.ant-select-disabled):not(.ant-select-customize-input):not(.ant-pagination-size-changer):hover .ant-select-selector {
   border-color: orange !important;
 }
 
-.ant-select-focused:where(.css-1km3mtt).ant-select:not(.ant-select-disabled):not(.ant-select-customize-input):not(.ant-pagination-size-changer) .ant-select-selector {
+.ant-select-focused:where(.css-dev-only-do-not-override-1km3mtt).ant-select:not(.ant-select-disabled):not(.ant-select-customize-input):not(.ant-pagination-size-changer) .ant-select-selector {
   border-color: rgb(255, 153, 0) !important;
 }
 
-:where(.css-1km3mtt).ant-btn-default:not(:disabled):hover {
+:where(.css-dev-only-do-not-override-1km3mtt).ant-btn-default:not(:disabled):hover {
   color: rgb(255, 94, 0) !important;
   border-color: rgb(255, 94, 0) !important;
 }
 
-.carouselIntroduce :where(.css-1km3mtt).ant-carousel-vertical .slick-dots-right {
+.carouselIntroduce :where(.css-dev-only-do-not-override-1km3mtt).ant-carousel-vertical .slick-dots-right {
   inset-inline-end: -17px;
 }
 
@@ -273,26 +273,26 @@ input:disabled {
 
 }
 
-.carouselIntroduce :where(.css-1km3mtt).ant-carousel-vertical .slick-dots li.slick-active button {
+.carouselIntroduce :where(.css-dev-only-do-not-override-1km3mtt).ant-carousel-vertical .slick-dots li.slick-active button {
   width: 14px;
   height: 14px;
 }
 
-:where(.css-1km3mtt).ant-tour .ant-tour-inner .ant-tour-footer .ant-tour-indicators .ant-tour-indicator-active {
+:where(.css-dev-only-do-not-override-1km3mtt).ant-tour .ant-tour-inner .ant-tour-footer .ant-tour-indicators .ant-tour-indicator-active {
   background-color: #ff8600;
 }
 
 
 
-:where(.css-1km3mtt).ant-btn-primary {
+:where(.css-dev-only-do-not-override-1km3mtt).ant-btn-primary {
   background-color: #ff8600;
 }
 
-:where(.css-1km3mtt).ant-btn-primary:not(:disabled):hover {
+:where(.css-dev-only-do-not-override-1km3mtt).ant-btn-primary:not(:disabled):hover {
   background-color: rgb(255, 94, 0);
 }
 
-:where(.css-1km3mtt).ant-carousel .slick-dots li.slick-active button {
+:where(.css-dev-only-do-not-override-1km3mtt).ant-carousel .slick-dots li.slick-active button {
   background-color: rgb(255, 94, 0);
 }
 
@@ -317,12 +317,12 @@ input:disabled {
   background-color: transparent;
 }
 
-.dark :where(.css-1km3mtt).ant-card {
+.dark :where(.css-dev-only-do-not-override-1km3mtt).ant-card {
   background-color: #393E46;
   color: white !important;
 }
 
-.dark :where(.css-1km3mtt).ant-card-bordered {
+.dark :where(.css-dev-only-do-not-override-1km3mtt).ant-card-bordered {
   border: none;
 }
 
@@ -334,75 +334,75 @@ input:disabled {
   color: gainsboro !important;
 }
 
-:where(.css-1km3mtt).ant-pagination .ant-pagination-item-active a {
+:where(.css-dev-only-do-not-override-1km3mtt).ant-pagination .ant-pagination-item-active a {
   color: orangered !important;
 }
 
-.dark :where(.css-1km3mtt).ant-pagination .ant-pagination-item a {
+.dark :where(.css-dev-only-do-not-override-1km3mtt).ant-pagination .ant-pagination-item a {
   color: white;
 }
 
-.dark :where(.css-1km3mtt).ant-tabs .ant-tabs-tab-btn {
+.dark :where(.css-dev-only-do-not-override-1km3mtt).ant-tabs .ant-tabs-tab-btn {
   color: white;
 }
 
-.dark :where(.css-1km3mtt).ant-pagination .ant-pagination-item-active {
+.dark :where(.css-dev-only-do-not-override-1km3mtt).ant-pagination .ant-pagination-item-active {
   background-color: #393E46;
   border-color: #ff5733;
   color: orangered !important;
 }
 
-.dark :where(.css-1km3mtt).ant-select:not(.ant-select-customize-input) .ant-select-selector {
+.dark :where(.css-dev-only-do-not-override-1km3mtt).ant-select:not(.ant-select-customize-input) .ant-select-selector {
   background-color: #393E46;
   color: white;
 }
 
-.dark :where(.css-1km3mtt).ant-select .ant-select-arrow {
+.dark :where(.css-dev-only-do-not-override-1km3mtt).ant-select .ant-select-arrow {
   color: white;
 }
 
-.dark :where(.css-1km3mtt).ant-table-wrapper .ant-table {
+.dark :where(.css-dev-only-do-not-override-1km3mtt).ant-table-wrapper .ant-table {
   background-color: #393E46;
   color: white;
 }
 
-.dark :where(.css-1km3mtt).ant-table-wrapper td.ant-table-column-sort {
+.dark :where(.css-dev-only-do-not-override-1km3mtt).ant-table-wrapper td.ant-table-column-sort {
   background-color: #ff5833a6;
 }
 
-.dark :where(.css-1km3mtt).ant-table-wrapper .ant-table-tbody>tr.ant-table-row:hover>td,
-.dark :where(.css-1km3mtt).ant-table-wrapper .ant-table-tbody>tr>td.ant-table-cell-row-hover {
+.dark :where(.css-dev-only-do-not-override-1km3mtt).ant-table-wrapper .ant-table-tbody>tr.ant-table-row:hover>td,
+.dark :where(.css-dev-only-do-not-override-1km3mtt).ant-table-wrapper .ant-table-tbody>tr>td.ant-table-cell-row-hover {
   background: #505050;
 }
 
-:where(.css-1km3mtt).ant-table-wrapper .ant-table-column-sorter-up.active,
-:where(.css-1km3mtt).ant-table-wrapper .ant-table-column-sorter-down.active {
+:where(.css-dev-only-do-not-override-1km3mtt).ant-table-wrapper .ant-table-column-sorter-up.active,
+:where(.css-dev-only-do-not-override-1km3mtt).ant-table-wrapper .ant-table-column-sorter-down.active {
   color: orangered;
 }
 
-.dark :where(.css-1km3mtt).ant-tabs-card>.ant-tabs-nav .ant-tabs-tab-active,
-.dark :where(.css-1km3mtt).ant-tabs-card>div>.ant-tabs-nav .ant-tabs-tab-active {
+.dark :where(.css-dev-only-do-not-override-1km3mtt).ant-tabs-card>.ant-tabs-nav .ant-tabs-tab-active,
+.dark :where(.css-dev-only-do-not-override-1km3mtt).ant-tabs-card>div>.ant-tabs-nav .ant-tabs-tab-active {
   background-color: #222831;
 }
 
-:where(.css-1km3mtt).ant-tabs .ant-tabs-tab-btn:focus:not(:focus-visible),
-:where(.css-1km3mtt).ant-tabs .ant-tabs-tab-remove:focus:not(:focus-visible),
-:where(.css-1km3mtt).ant-tabs .ant-tabs-tab-btn:active,
-:where(.css-1km3mtt).ant-tabs .ant-tabs-tab-remove:active {
+:where(.css-dev-only-do-not-override-1km3mtt).ant-tabs .ant-tabs-tab-btn:focus:not(:focus-visible),
+:where(.css-dev-only-do-not-override-1km3mtt).ant-tabs .ant-tabs-tab-remove:focus:not(:focus-visible),
+:where(.css-dev-only-do-not-override-1km3mtt).ant-tabs .ant-tabs-tab-btn:active,
+:where(.css-dev-only-do-not-override-1km3mtt).ant-tabs .ant-tabs-tab-remove:active {
   color: orangered;
 }
 
-.dark :where(.css-1km3mtt).ant-table-wrapper .ant-table-thead>tr>th,
-.dark :where(.css-1km3mtt).ant-table-wrapper .ant-table-thead>tr>td {
+.dark :where(.css-dev-only-do-not-override-1km3mtt).ant-table-wrapper .ant-table-thead>tr>th,
+.dark :where(.css-dev-only-do-not-override-1km3mtt).ant-table-wrapper .ant-table-thead>tr>td {
   background-color: #ababab;
 }
 
-.dark :where(.css-1km3mtt).ant-pagination .ant-pagination-item-active a {
+.dark :where(.css-dev-only-do-not-override-1km3mtt).ant-pagination .ant-pagination-item-active a {
   color: orangered !important;
 }
 
-.dark :where(.css-1km3mtt).ant-pagination .ant-pagination-prev button,
-.dark :where(.css-1km3mtt).ant-pagination .ant-pagination-next button {
+.dark :where(.css-dev-only-do-not-override-1km3mtt).ant-pagination .ant-pagination-prev button,
+.dark :where(.css-dev-only-do-not-override-1km3mtt).ant-pagination .ant-pagination-next button {
   color: white;
 }
 
@@ -414,11 +414,11 @@ input:disabled {
   transform: scale(1.05);
 }
 
-:where(.css-1km3mtt).ant-tour {
+:where(.css-dev-only-do-not-override-1km3mtt).ant-tour {
   max-width: 350px;
 }
 
-:where(.css-1km3mtt).ant-pagination .ant-pagination-item-active {
+:where(.css-dev-only-do-not-override-1km3mtt).ant-pagination .ant-pagination-item-active {
   border-color: orangered !important;
 }
 
@@ -445,6 +445,52 @@ input:disabled {
   opacity: 1
 }
 
+/* admin */
+:where(.css-dev-only-do-not-override-1km3mtt).ant-menu-dark {
+  background-color: white;
+  color: black;
+
+}
+
+.dark :where(.css-dev-only-do-not-override-1km3mtt).ant-menu-dark {
+  background-color: #393E46;
+  color: white;
+}
+
+:where(.css-dev-only-do-not-override-1km3mtt).ant-menu-dark .ant-menu-item-selected {
+  background-color: #ff8600;
+}
+
+:where(.css-dev-only-do-not-override-1km3mtt).ant-menu-dark .ant-menu-item:hover:not(.ant-menu-item-selected):not(.ant-menu-submenu-selected),
+:where(.css-dev-only-do-not-override-1km3mtt).ant-menu-dark .ant-menu-submenu-title:hover:not(.ant-menu-item-selected):not(.ant-menu-submenu-selected) {
+  background-color: #ff8600;
+}
+
+:where(.css-dev-only-do-not-override-1km3mtt).ant-input-search .ant-input:hover,
+:where(.css-dev-only-do-not-override-1km3mtt).ant-input-search .ant-input:focus {
+  border-color: #ff8600;
+}
+
+:where(.css-dev-only-do-not-override-1km3mtt).ant-input-affix-wrapper:focus,
+:where(.css-dev-only-do-not-override-1km3mtt).ant-input-affix-wrapper-focused,
+:where(.css-dev-only-do-not-override-1km3mtt).ant-input-affix-wrapper:not(.ant-input-affix-wrapper-disabled):hover {
+  border-color: #ff8600;
+}
+
+:where(.css-dev-only-do-not-override-1km3mtt).ant-switch {
+  background-color: #393E46;
+}
+
+:where(.css-dev-only-do-not-override-1km3mtt).ant-switch.ant-switch-checked,
+:where(.css-dev-only-do-not-override-1km3mtt).ant-switch.ant-switch-checked {
+  background-color: #ff8600;
+}
+:where(.css-dev-only-do-not-override-1km3mtt).ant-switch.ant-switch-checked{
+  background: #ff8600;
+}
+:where(.css-dev-only-do-not-override-1km3mtt).ant-switch.ant-switch-checked:hover:not(.ant-switch-disabled){
+  background: #ff8600;
+}
 @media screen and (max-width:750px) {
   .normalSeat {
     width: 29px;

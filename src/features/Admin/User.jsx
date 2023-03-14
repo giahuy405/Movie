@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {  fetchListUser, searchUer } from "./thunk";
-import { Button, Input, Table,Tooltip} from "antd";
-import { UserAddOutlined,EditOutlined,DeleteOutlined} from "@ant-design/icons";
+import { fetchListUser, searchUer } from "./thunk";
+import { Button, Input, Table, Tooltip } from "antd";
+import { UserAddOutlined, EditOutlined, DeleteOutlined } from "@ant-design/icons";
 
 const User = () => {
   const dispatch = useDispatch();
@@ -10,8 +10,8 @@ const User = () => {
   useEffect(() => {
     dispatch(fetchListUser)
   }, [dispatch]);
-  const  onSearch = (value)=>{
-    value === ""? dispatch(fetchListUser):dispatch(searchUer(value))
+  const onSearch = (value) => {
+    value === "" ? dispatch(fetchListUser) : dispatch(searchUer(value))
   }
   const columns = [
     {
@@ -41,17 +41,17 @@ const User = () => {
 
     },
     {
-      title: "Loại Người dùng",
+      title: "Loại Người Dùng",
       dataIndex: "maLoaiNguoiDung",
       // width:200,
-      filters:[
+      filters: [
         {
-          text:"KhachHang",
-          value:"KhachHang"
+          text: "KhachHang",
+          value: "KhachHang"
         },
         {
-          text:"QuanTri",
-          value:"QuanTri"
+          text: "QuanTri",
+          value: "QuanTri"
         }
       ],
       filterMode: 'tree',
@@ -64,41 +64,43 @@ const User = () => {
     },
   ];
   return (
-      <div className="m-5 p-2 bg-slate-300">
-        <h2 className="m-0 text-2xl font-bold">Quản lý tài khoản</h2>
-        <div className="flex justify-center items-center">
+    <div className=" p-3 bg-gray-200 dark:bg-[#727272]">
+      <h2 className="m-0 text-2xl font-bold text-center">Quản lý tài khoản</h2>
+      <div className="flex justify-center items-center">
         <Button type="primary" className="my-3 bg-sky-500">
           <UserAddOutlined />
           Thêm người dùng
         </Button>
-        <Input.Search placeholder="Nhập từ khóa tìm kím" 
-        onSearch={onSearch}
-        style={{
-          marginLeft: 40
-        }}
+        <Input.Search placeholder="Tìm kiếm tên người dùng"
+          onSearch={onSearch}
+          style={{
+            marginLeft: 15,
+            width: 300
+          }}
         />
-        </div>
-        
-        <Table columns={columns} dataSource={dataSource.map((items)=>{
-          return{
-            key:items.taikhoan,
-            taiKhoan:items.taiKhoan,
-            hoTen: items.hoTen,
-            email: items.email,
-            soDT:items.soDT,
-            matKhau:<Input.Password value={items.matKhau} style ={{width: 150}}/>,
-            maLoaiNguoiDung:items.maLoaiNguoiDung ,
-            thaoTac:<> <Tooltip title="Edit" color="green" key="green">
-            <button className='ml-3 text-green-600 text-lg '><EditOutlined /></button>
+      </div>
+
+      <Table columns={columns} dataSource={dataSource.map((items) => {
+        return {
+          key: items.taikhoan,
+          taiKhoan: items.taiKhoan,
+          hoTen: items.hoTen,
+          email: items.email,
+          soDT: items.soDT,
+          matKhau: <Input.Password value={items.matKhau} style={{ width: 150 }} />,
+          maLoaiNguoiDung: items.maLoaiNguoiDung,
+          thaoTac: <div className="flex items-center">
+            <Tooltip title="Edit" color="green" key="green">
+              <button className='ml-3 text-green-600 text-lg '><EditOutlined /></button>
             </Tooltip>
             <Tooltip title="Delete" color="red" key="red" >
-            <button className='ml-5 text-red-600 text-lg '><DeleteOutlined /></button>
+              <button className='ml-5 text-red-600 text-lg '><DeleteOutlined /></button>
             </Tooltip>
-            </>
-          }
-        })} />
-          
-      </div>
+          </div>
+        }
+      })} />
+
+    </div>
   );
 };
 
