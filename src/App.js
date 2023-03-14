@@ -11,6 +11,7 @@ import User from "./features/Admin/User";
 import NewFilms from "./features/Admin/NewFilms";
 import Editfilms from "./features/Admin/Editfilms";
 import Showtime from "./features/Admin/Showtime";
+import RouteAdmin from "./HOCs/AppRouteAdmin";
 
  
 function App() {
@@ -21,16 +22,15 @@ function App() {
   useEffect(() => {
     dispatch(fetchProfile);
   }, [])
-
   return (
     <BrowserRouter>
 
       <Routes>
-        {routes.map(({ path, component: Component, isPrivate , isAuth, redirectPath , isAdmin, }) =>
-          <Route key={path} path={path} element={<RouteComponent isPrivate={isPrivate} isAuth={isAuth} isAdmin ={isAdmin} Component={Component} redirectPath={redirectPath}  />}/>
+        {routes.map(({ path, component: Component, isPrivate , isAuth, redirectPath , }) =>
+          <Route key={path} path={path} element={<RouteComponent isPrivate={isPrivate} isAuth={isAuth} Component={Component} redirectPath={redirectPath}  />}/>
         )}
         <Route path='/*' element={<NotFoundPage />} />
-        <Route path="/admin" element={<Dashboard/>}>
+        <Route path="/admin" element={<RouteAdmin isAdmin={true} Component={Dashboard} redirectPath={"/signin"}/>} >
             <Route index element={<User/>} />
             <Route  path="films" element={<ListFilms/>} />
             <Route  path="films/addnew" element={<NewFilms/>} /> 

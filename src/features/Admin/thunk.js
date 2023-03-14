@@ -1,6 +1,6 @@
 
 import { adminService } from "./services/adminService";
-
+import Swal from "sweetalert2";
 export const fetchFilms = async (dispatch)=>{
     try{
         const res = await adminService.getFilms()
@@ -51,9 +51,24 @@ export const searchFilms = (tuKhoa) => async (dispatch) =>{
 export const addNewFilms = async (data)=>{
     try{
         const res = await adminService.addNewFilms(data);
-        alert('thêm thành công');
-        console.log(res.data.content);
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Thêm Phim Thành Công',
+            showConfirmButton: false,
+            timer: 1500,
+          })
     }catch(err){
+        if(err.response.status === 500){
+            Swal.fire({
+                position: 'center',
+                icon: 'warning',
+                text: "Phim đã tồn tại",
+                title: err.response.data.content,
+                showConfirmButton: true,
+                // timer: 1500,
+              })
+        }
         console.log(err);
     }
 }
@@ -71,15 +86,29 @@ export const infoFilms = (id)=>  async (dispatch) =>{
 export const uploadFilms = async  (formData) =>{
     try{
     const res = await adminService.updateFilms(formData);
-    alert("cập nhập thành công")
+    Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Cập nhập thành Công',
+        showConfirmButton: false,
+        timer: 1500,
+      })
     }catch(err){
+        if(err.response.status === 500){
+            Swal.fire({
+                position: 'center',
+                icon: 'warning',
+                title: err.response.data.content,
+                showConfirmButton: true,
+                // timer: 1500,
+              })
+        }
         console.log(err);
     }
 }
 export const deleteFimls =  (maPhim) =>async (dispatch) =>{
     try{
     const res = await adminService.deleteFilms(maPhim);
-    alert("Xóa Thành Công")
     dispatch(fetchFilms)
     }catch(err){
         console.log(err);

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
-
+import Swal from 'sweetalert2';
 const RouteComponent = ({ isAuth, isAdmin, isPrivate, Component, redirectPath }) => {
     // lấy infor dưới reducer 
     const { infoUser } = useSelector(state => state.authReducer);
@@ -15,9 +15,13 @@ const RouteComponent = ({ isAuth, isAdmin, isPrivate, Component, redirectPath })
         return !infoUser ? <Component /> : <Navigate to={redirectPath} />
     }
      // chỉ dc vào khi user là quản trị
-     if (isAdmin) {
-        return token ? <Component /> : <Navigate to={redirectPath} />
-    }
+    //  if (isAdmin) {
+    //    if(!token){
+    //     return <Navigate to={redirectPath} />}
+    //    }else{
+    //     return infoUser ?  <Component /> : <Navigate to={redirectPath}/>
+    //    }
+     
     return (
         <Component />
     );

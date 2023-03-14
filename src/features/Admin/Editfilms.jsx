@@ -14,6 +14,7 @@ import moment from 'moment';
 import { useDispatch, useSelector } from 'react-redux';
 import {  infoFilms, uploadFilms } from './thunk';
 import {  useParams } from 'react-router-dom';
+import dayjs from 'dayjs';
 
 
 
@@ -37,7 +38,7 @@ const [componentSize, setComponentSize] = useState('Default');
         tenPhim:thongTinPhim.tenPhim,
         trailer:thongTinPhim?.trailer,
         moTa:thongTinPhim?.moTa,
-        ngayKhoiChieu:thongTinPhim?.ngayKhoiChieu,
+        ngayKhoiChieu:dayjs(thongTinPhim?.ngayKhoiChieu).format(`DD/MM/YYYY`),
         dangChieu: thongTinPhim?.dangChieu,
         sapChieu: thongTinPhim?.sapChieu,
         danhGia:thongTinPhim?.danhGia,
@@ -122,7 +123,7 @@ const [componentSize, setComponentSize] = useState('Default');
     </Form.Item>
     <div className='flex ml-60'  >
     <Form.Item label="Ngày Khởi Chiếu"  className='font-bold mr-20'>
-      <DatePicker  onChange={handleChangeDatePicker} format={"DD/MM/YYYY"} defaultValue={moment(formik.values.ngayKhoiChieu)}/>
+      <DatePicker  onChange={handleChangeDatePicker} format={"DD/MM/YYYY"} defaultValue={dayjs(formik.values.ngayKhoiChieu,"DD/MM/YYYY")}/>
     </Form.Item>
     <Form.Item label="Đang Chiếu"  className='font-bold mr-5' >
       <Switch  onChange={handleChangeSwitch("dangChieu")} checked={formik.values.dangChieu}/>

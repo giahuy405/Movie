@@ -16,5 +16,5 @@ export const routes = [
     // { path: '/admin', component: User,  isAdmin:true, redirectPath: '/signin'},
     // { path: '/admin/films', component: Listfilms,  isAdmin:true, redirectPath: '/signin'},
     // { path: '/admin/films/addnew', component: Listfilms,  isAdmin:true, redirectPath: '/signin'},
-    
+  
 ]

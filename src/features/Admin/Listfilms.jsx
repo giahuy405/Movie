@@ -5,6 +5,7 @@ import { Table, Space, Button, Input, Tooltip } from 'antd'
 import Highlighter from 'react-highlight-words';
 import { SearchOutlined,EditOutlined, DeleteOutlined,DesktopOutlined } from '@ant-design/icons';
 import { NavLink, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const ListFilms = () => {
 const dispatch = useDispatch ();
@@ -175,7 +176,26 @@ const Navigate = useNavigate();
             <button className='  text-green-600 text-lg ' onClick={()=>{goToEditFilms(items.maPhim)}}><EditOutlined /></button>
             </Tooltip>
             <Tooltip title="Delete" color="red" key="red" >
-            <button className='mx-3  text-red-600 text-lg ' onClick={()=>{dispatch(deleteFimls(items.maPhim))}}><DeleteOutlined /></button>
+            <button className='mx-3  text-red-600 text-lg ' onClick={()=>{
+              Swal.fire({
+                title: 'Có chắc bạn muốn xóa phim !',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'xóa'
+              }).then((result) => {
+                if (result.isConfirmed) {
+                  dispatch(deleteFimls(items.maPhim))
+                  Swal.fire({
+                    
+                    title: 'Xóa Thành Công',
+                    icon: 'success',
+                    timer: 1500,
+                  })
+                 
+                }
+              })}}><DeleteOutlined /></button>
             </Tooltip>
             <Tooltip title="Showtime" color="blue" key="blue" >
             <button className=' text-sky-600 text-lg ' onClick={()=>{goToShowTimme(items.maPhim)}}><DesktopOutlined /></button>

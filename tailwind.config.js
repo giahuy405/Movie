@@ -4,6 +4,9 @@ module.exports = {
     extend: {
       height:{
         '100':480,
+      },
+      margin: {
+        '720': 720,
       }
     },
   },

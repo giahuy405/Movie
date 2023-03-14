@@ -7,6 +7,7 @@ import { useFormik } from 'formik';
 import { useParams } from 'react-router-dom';
 import 'dayjs/locale/de'
 import dayjs from "dayjs";
+import Swal from 'sweetalert2';
 
 const Showtime = (props) => {
 const thongTinPhim = useSelector(state=>state.adminReducer.infoFilms)
@@ -27,7 +28,13 @@ const formik = useFormik({
     onSubmit: async (values) =>{
       try{
         const res = await adminService.upShowTime(values)
-        alert("thêm lịch chiếu thành công")
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Tạo lịch Chiếu Thành Công',
+          showConfirmButton: false,
+          timer: 1500,
+        })
       }catch(err){
         console.log(err);
       }
