@@ -1,4 +1,4 @@
-# Movie App - TIX ĐẶT VÉ XEM PHIM NHANH NHẤT
+# Movie TIX  
 This is a web application for a movie theater that allows users to buy tickets, reserve seats and manage their bookings. The website also includes an admin panel that allows administrators to manage movies, showtimes, seats and bookings.
 ###
 
