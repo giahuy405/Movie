@@ -11,6 +11,9 @@ const RouteAdmin = ({ isAdmin,  Component, redirectPath }) => {
     // chỉ được vào khi đã login 
      // chỉ dc vào khi user là quản trị
      if (isAdmin) {
+        if(!token){
+            return <Navigate to={redirectPath} />
+        }
         if (!infoUser) return <div className='h-screen w-screen bg-white dark:bg-[#222831] '>
             <img className='ml-720 pt-64 w-28' src="https://movie-booking-project.vercel.app/img/logoTixLoading.png" alt="#" />
             <div className='flex items-center justify-center'>
